@@ -1,0 +1,97 @@
+/**
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Academic Free License version 3.0
+* that is bundled with this package in the file LICENSE.txt
+* It is also available through the world-wide-web at this URL:
+* https://opensource.org/licenses/AFL-3.0
+*
+* DISCLAIMER
+*
+* Do not edit or add to this file if you wish to upgrade this module to a newer
+* versions in the future. If you wish to customize this module for your needs
+* please refer to CustomizationPolicy.txt file inside our module for more information.
+*
+* @author Webkul IN
+* @copyright Since 2010 Webkul
+* @license https://opensource.org/licenses/AFL-3.0 Academic Free License version 3.0
+*/
+
+.text-danger
+{
+	color: #000;
+}
+.wklabel{
+	padding: 5px 15px;
+}
+#add_specific_price
+{
+	border: 1px solid #ddd;
+	padding: 10px;
+	margin-bottom: 10px;
+}
+#slotbutton{
+	padding: 6px 0px;
+}
+.wkinput {
+	background-color: #fff;
+	border: 1px solid #d6d4d4;
+	border-radius: 0;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+	color: #9c9b9b;
+	display: block;
+	font-size: 13px;
+	height: 32px;
+	line-height: 1.42857;
+	padding: 6px 2px;
+	transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+
+	width: 100%;
+}
+.slot-button {
+	text-align: center;
+}
+.slot-button a {
+	padding: 8px 32px;
+}
+.wkslotprice_loader
+{
+    display:none;
+    position:fixed;
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    background-color:rgba(0,0,0,0.5);
+    z-index: 100000;
+}
+.wkslotprice-loading-img
+{
+    position:absolute;
+    left:50%;
+    top:50%;
+}
+#my-orders-table thead
+{
+	border-bottom: 1px solid #ddd;
+}
+
+
+
+#ui-datepicker-div {
+	z-index:99999 !important;
+}
+.modaldatetime_height {
+
+		top : 350px !important;
+
+}
+table td, table th {
+    padding: 9px 6px;
+}
+@media only screen and (min-width: 900px){
+	.wkslotdate
+	{
+		width: 37.77%;
+	}
+}

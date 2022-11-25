@@ -1,0 +1,5 @@
+Manufacturer Active
+
+Hello {seller_name},
+
+Your {manufacturer_name} manufacturer request has been approved by admin.

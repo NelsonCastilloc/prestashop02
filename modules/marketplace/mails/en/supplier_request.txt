@@ -1,0 +1,13 @@
+Supplier Request
+
+Hello Admin,
+
+A new supplier request has been created by <b>{seller_name}</b>
+
+Details
+
+Seller name: {seller_name}
+
+Seller email: {seller_email}
+
+Supplier name: {supplier_name}

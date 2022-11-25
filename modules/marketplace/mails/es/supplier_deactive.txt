@@ -1,0 +1,5 @@
+Supplier Deactive
+
+Hello {seller_name},
+
+Your {supplier_name} supplier has been deactivated by admin.

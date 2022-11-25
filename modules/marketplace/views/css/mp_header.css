@@ -1,0 +1,69 @@
+/**
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Academic Free License version 3.0
+* that is bundled with this package in the file LICENSE.txt
+* It is also available through the world-wide-web at this URL:
+* https://opensource.org/licenses/AFL-3.0
+*
+* DISCLAIMER
+*
+* Do not edit or add to this file if you wish to upgrade this module to a newer
+* versions in the future. If you wish to customize this module for your needs
+* please refer to CustomizationPolicy.txt file inside our module for more information.
+*
+* @author Webkul IN
+* @copyright Since 2010 Webkul
+* @license https://opensource.org/licenses/AFL-3.0 Academic Free License version 3.0
+*/
+
+a.boxclose {
+    cursor: pointer;
+    color: #fff;
+    font-size: 25px;
+    line-height: 0px;
+    padding: 11px 3px;
+    float: right;
+}
+
+.boxclose:before {
+    content: "×";
+}
+
+.wk_ad_footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    /* height: 50px; */
+    background-color: #1E2327;
+    z-index: 999999;
+    color: #FFFFFF;
+}
+
+.wk_ad_content {
+    text-align: center;
+    padding: 7px;
+}
+
+#_desktop_contact_link,
+.mp_advertise {
+    float: left;
+}
+
+.mp_advertise {
+    margin: 15px;
+}
+
+.wk_edit_product_btn {
+    margin-top: 25px;
+}
+
+.wk_seller_edit {
+    border: 1px solid;
+    cursor: pointer;
+    padding: 7px 10px;
+}
+
+.wk_soldby_link {
+    padding: 20px 0;
+}

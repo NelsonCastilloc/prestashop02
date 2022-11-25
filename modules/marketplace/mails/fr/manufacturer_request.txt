@@ -1,0 +1,13 @@
+Manufacturer Request
+
+Hello Admin,
+
+A new manufacturer request has been created by <b>{seller_name}</b>
+
+Details
+
+Seller name: {seller_name}
+
+Seller email: {seller_email}
+
+Manufacturer name: {manufacturer_name}

@@ -1,0 +1,136 @@
+/**
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Academic Free License version 3.0
+* that is bundled with this package in the file LICENSE.txt
+* It is also available through the world-wide-web at this URL:
+* https://opensource.org/licenses/AFL-3.0
+*
+* DISCLAIMER
+*
+* Do not edit or add to this file if you wish to upgrade this module to a newer
+* versions in the future. If you wish to customize this module for your needs
+* please refer to CustomizationPolicy.txt file inside our module for more information.
+*
+* @author Webkul IN
+* @copyright Since 2010 Webkul
+* @license https://opensource.org/licenses/AFL-3.0 Academic Free License version 3.0
+*/
+
+.pkprod_container {
+	display: none;
+	clear: both;
+}
+
+.related_container {
+	position: relative;
+}
+
+.no_margin {
+	margin: 0px;
+}
+
+#relatedprod_ul {
+	/* margin-left: 1.1%; */
+	overflow-y: auto;
+	max-height: 160px;
+	width: 100%;
+	z-index: 100;
+	display: none;
+	padding: 0px;
+	position: absolute;
+	background-color: white;
+	border-left: 1px solid #d6d4d4;
+	border-right: 1px solid #d6d4d4;
+	border-bottom: 1px solid #d6d4d4;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+#relatedprod_ul li {
+	float: left;
+	width: 100%;
+	padding: 6px 5px;
+}
+
+#relatedprod_ul li:hover, #relatedprod_ul li:focus, #relatedprod_ul li:active {
+	background-color: #428bca;
+	color: #fff;
+}
+
+.margin-top-20 {
+	margin-top: 20px;
+}
+
+.pk_sug_prod {
+	border: 2px solid #eee;
+	border-radius: 4px;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+	word-wrap: break-word;
+}
+
+.pk_sug_img {
+	margin-bottom: 10px;
+	border-bottom: 1px solid #eee;
+	padding: 0;
+	width: 100%;
+}
+
+.pk_sug_prod p {
+	margin-bottom: 5px;
+	display: inline-block;
+	margin-bottom: 5px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 100%;
+}
+
+.pk_sug_prod span {
+	background-color: #fff;
+	border: 1px solid #ccc;
+	text-align: center;
+	padding: 6px 10px;
+	color: #333;
+}
+
+.sugpkprod_li:hover {
+	cursor: pointer;
+}
+
+h4.li_prod_name {
+	font-size: 15px !important;
+	text-transform: capitalize !important;
+	font-weight: 400 !important;
+}
+.li_prod_name {
+	margin-top: 0px !important;
+}
+
+a.dltpkprod {
+	cursor: pointer;
+	float: right;
+	color: inherit;
+}
+
+.wk-mp-block .wkPkSelectedProduct{
+	font-weight: 600;
+	color: #000 !important;
+	background-color: #fff !important;
+	border: 1px solid #ccc !important;
+	font-size: 14px !important;
+	display: block;
+	width: 100%;
+	padding: 0.5rem 1rem;
+}
+
+.wk-selected-products {
+	background-color: rgba(255, 255, 255, 0.3);
+	border-color: #aba49f !important;
+	color: #232323;
+}
+
+#selected_related_product span{
+	font-size: 1.4em;
+}

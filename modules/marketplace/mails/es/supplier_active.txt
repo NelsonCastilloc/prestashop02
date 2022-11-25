@@ -1,0 +1,5 @@
+Supplier Active
+
+Hello {seller_name},
+
+Your {supplier_name} supplier request has been approved by admin.
