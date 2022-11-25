@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<module>
+    <name>marketplace</name>
+    <displayName><![CDATA[Mercado]]></displayName>
+    <version><![CDATA[6.0.0]]></version>
+    <description><![CDATA[Convertir su tienda Prestashop en un mercado donde los vendedores pueden a&ntilde;adir productos, gesti&oacute;n de pedidos, gesti&oacute;n de perfil, tienda, nombre del producto y descripciones en varios idiomas.]]></description>
+    <author><![CDATA[Webkul]]></author>
+    <tab><![CDATA[market_place]]></tab>
+	<confirmUninstall><![CDATA[¿Estás seguro? Todos los datos del módulo se perderán después de desinstalar el módulo]]></confirmUninstall>
+    <is_configurable>1</is_configurable>
+    <need_instance>0</need_instance>
+	<limited_countries></limited_countries>
+</module>
