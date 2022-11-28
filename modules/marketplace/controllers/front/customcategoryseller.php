@@ -88,7 +88,7 @@ class MarketplaceCustomCategorySellerModuleFrontController extends ModuleFrontCo
                     'all',
                     $idLang
                 );
-                
+                /* Getting category all for new functionality in front seller -category management-*/
                 $complex_category = Category::getCategories();
                 $category = [];
                 foreach ($complex_category as $i => $Ivalue) {

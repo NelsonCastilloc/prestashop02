@@ -17,6 +17,8 @@
 * @license https://opensource.org/licenses/AFL-3.0 Academic Free License version 3.0
 *}
 
+/*New view for category management functionality on front Seller*/
+
 {extends file=$layout}
 {block name='content'}
 	{if isset($smarty.get.created_conf)}
