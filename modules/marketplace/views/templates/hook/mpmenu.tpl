@@ -88,6 +88,16 @@
 						</a>
 					</span>
 				</li>
+
+				<li {if $logic == 'custom_category_seller'}class="menu_active"{/if}>
+					<span>
+						<a href="{$link->getModuleLink('marketplace', 'customcategoryseller')|addslashes}">
+							<i class="material-icons">&#xe574;</i>
+							{l s='product category' mod='marketplace'}
+						</a>
+					</span>
+				</li>
+
 				{if Configuration::get('WK_MP_PRESTA_ATTRIBUTE_ACCESS')}
 					<li {if $logic=='mp_prod_attribute'}class="menu_active"{/if}>
 						<span>

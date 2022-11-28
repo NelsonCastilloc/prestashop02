@@ -54,3 +54,12 @@
     </div>
   </div>
 </div>
+
+<div id="error-ajax-modal" class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content alert alert-danger">
+         <div class="modal-body">
+        </div>
+      </div>
+    </div>
+  </div>

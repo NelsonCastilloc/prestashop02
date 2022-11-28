@@ -69,6 +69,12 @@
 			{l s='Payment Detail' mod='marketplace'}
 		</span>
 	</a>
+	<a class="col-lg-4 col-md-6 col-sm-6 col-xs-12" title="{l s='product category' mod='marketplace'}" href="{$link->getModuleLink('marketplace', 'customcategoryseller')|addslashes}">
+		<span class="link-item">
+			<i class="material-icons">&#xe574;</i>
+			{l s='product category' mod='marketplace'}
+		</span>
+	</a>	
 	{if Configuration::get('WK_MP_PRESTA_ATTRIBUTE_ACCESS')}
 		<a class="col-lg-4 col-md-6 col-sm-6 col-xs-12" href="{$link->getModuleLink('marketplace', 'productattribute')}" title="{l s='Product Attributes' mod='marketplace'}">
 			<span class="link-item">
