@@ -34,6 +34,9 @@ class CategoryCore extends ObjectModel
     /** @var int category ID */
     public $id_category;
 
+    /** @var int seller ID */
+    public $id_seller;
+
     /** @var mixed string or array of Name */
     public $name;
 
@@ -108,6 +111,7 @@ class CategoryCore extends ObjectModel
             'id_parent' => ['type' => self::TYPE_INT, 'validate' => 'isUnsignedInt'],
             'id_shop_default' => ['type' => self::TYPE_INT, 'validate' => 'isUnsignedId'],
             'is_root_category' => ['type' => self::TYPE_BOOL, 'validate' => 'isBool'],
+            'id_seller' => ['type' => self::TYPE_INT, 'validate' => 'isUnsignedId'],
             'position' => ['type' => self::TYPE_INT],
             'date_add' => ['type' => self::TYPE_DATE, 'validate' => 'isDate'],
             'date_upd' => ['type' => self::TYPE_DATE, 'validate' => 'isDate'],
@@ -652,6 +656,47 @@ class CategoryCore extends ObjectModel
 
         return $categories;
     }
+
+    /**
+     * Return available categories.
+     *
+     * @param bool|int $idLang Language ID
+     * @param bool $active Only return active categories
+     * @param bool $order Order the results
+     * @param string $sqlFilter Additional SQL clause(s) to filter results
+     * @param string $orderBy Change the default order by
+     * @param string $limit Set the limit
+     *                      Both the offset and limit can be given
+     *
+     * @return array Categories
+     */
+    public static function getCategoriesBySeller($idLang = false, $active = true, $order = true, $sqlFilter = '', $orderBy = '', $limit = '', $idSeller='')
+    {
+        if (!Validate::isBool($active)) {
+            die(Tools::displayError());
+        }
+        $result = Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS(
+            '
+        SELECT *
+        FROM `' . _DB_PREFIX_ . 'category` c
+        INNER JOIN `' . _DB_PREFIX_ . 'category_lang` cl ON c.`id_category` = cl.`id_category` ' . 
+        $sqlFilter . ' ' . ($idLang ? 'AND `id_lang` = ' . (int) $idLang : '') . '
+        ' . ($idSeller ? 'AND id_seller = '.$idSeller : '') . '
+        ' . ($active ? 'AND `active` = 1' : '') . '
+        ' . (!$idLang ? 'GROUP BY c.id_category' : '') . '
+        ' . ($orderBy != '' ? $orderBy : 'ORDER BY c.`level_depth` ASC') . ($limit != '' ? $limit : '')
+        );
+        if (!$order) {
+            return $result;
+        }
+
+        $categories = [];
+        foreach ($result as $row) {
+            $categories[$row['id_parent']][$row['id_category']]['infos'] = $row;
+        }
+
+        return $categories;
+    }    
 
     /**
      * @param int $idRootCategory ID of root Category

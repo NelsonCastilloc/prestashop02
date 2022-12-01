@@ -22,6 +22,7 @@ class MarketplaceCustomCategorySellerModuleFrontController extends ModuleFrontCo
 {
     public function initContent()
     {
+        
         parent::initContent();
         if (isset($this->context->customer->id)) {
             $idCustomer = $this->context->customer->id;
@@ -88,19 +89,8 @@ class MarketplaceCustomCategorySellerModuleFrontController extends ModuleFrontCo
                     'all',
                     $idLang
                 );
-                /* Getting category all for new functionality in front seller -category management-*/
-                $complex_category = Category::getCategories();
-                $category = [];
-                foreach ($complex_category as $i => $Ivalue) {
-                    foreach ($Ivalue as $j => $Jvalue) {
-                        foreach ($Jvalue as $k => $Kvalue) {
-                            $category[$i]['id'] = $Kvalue['id_category'];
-                            $category[$i]['level'] = $Kvalue['level_depth'];
-                            $category[$i]['name'] = $Kvalue['name'];
-                            $category[$i]['description'] = strip_tags($Kvalue['description']);
-                        }
-                    }
-                }
+                $category = Category::getCategoriesBySeller(true, true, false, 'WHERE 1', '', '', $seller['id_seller']);
+                
                 if (!$sellerProduct) {
                     $sellerProduct = array();
                 }
@@ -128,7 +118,12 @@ class MarketplaceCustomCategorySellerModuleFrontController extends ModuleFrontCo
                 ));
 
                 $this->defineJSVars();
-                $this->setTemplate('module:marketplace/views/templates/front/category/categorylist.tpl');
+
+                if (Tools::getValue('action') == 'add') {
+                    return $this->setTemplate('module:marketplace/views/templates/front/category/addcategory.tpl');
+                }
+
+                return $this->setTemplate('module:marketplace/views/templates/front/category/categorylist.tpl');
             } else {
                 Tools::redirect($this->context->link->getModuleLink('marketplace', 'sellerrequest'));
             }
@@ -138,44 +133,6 @@ class MarketplaceCustomCategorySellerModuleFrontController extends ModuleFrontCo
                 urlencode($this->context->link->getModuleLink('marketplace', 'productlist'))
             );
         }
-    }
-
-
-    public function postProcess()
-    {
-        if (Configuration::get('WK_MP_SELLER_EXPORT')
-        && (Tools::isSubmit('mp_csv_product_export') || Tools::getValue('export_all'))) {
-            $fromExportDate = Tools::getValue('from_export_date');
-            $toExportDate = Tools::getValue('to_export_date');
-            $fromExportDate = date('Y-m-d', strtotime($fromExportDate));
-            $toExportDate = date('Y-m-d', strtotime($toExportDate));
-            $exportAll = false;
-            if (Tools::getValue('export_all')) {
-                $exportAll = true;
-            }
-            if (!$exportAll) {
-                if ($fromExportDate == '') {
-                    $this->errors[] = $this->module->l('Export from date is required.', 'mporder');
-                } elseif (!Validate::isDateFormat($fromExportDate)) {
-                    $this->errors[] = $this->module->l('Export from date is not valid.', 'mporder');
-                }
-                if ($toExportDate == '') {
-                    $this->errors[] = $this->module->l('Export to date is required.', 'mporder');
-                } elseif (!Validate::isDateFormat($toExportDate)) {
-                    $this->errors[] = $this->module->l('Export to date is not valid.', 'mporder');
-                }
-            }
-
-            if (empty($this->errors)) {
-                $id_customer = $this->context->customer->id;
-                if ($id_customer) {
-                    $mpSeller = WkMpSeller::getSellerDetailByCustomerId($id_customer);
-                    $this->exportProductsCSV($mpSeller, $fromExportDate, $toExportDate, $exportAll);
-                }
-            }
-        }
-
-        parent::postProcess();
     }
 
     public function exportProductsCSV($seller, $fromExportDate, $toExportDate, $exportAll)

@@ -88,7 +88,7 @@
 					<p class="wk_text_right">
 						{if $add_permission}
 							<a title="{l s='Add product' mod='marketplace'}"
-								href="{$link->getModuleLink('marketplace', 'addproduct')}">
+								href="{$link->getModuleLink('marketplace', 'customcategoryseller',['action' => 'add'])|addslashes}">
 								<button class="btn btn-primary btn-sm" type="button">
 									<i class="material-icons">&#xE145;</i>
 									{l s='Add category' mod='marketplace'}
@@ -125,16 +125,16 @@
 								{if $category_list != 0}
 									{foreach $category_list as $key => $cat}
 										<tr>
-											<td>{$cat.id}</td>
+											<td>{$cat.id_category}</td>
 											<td><b>{l s=$cat.name mod='marketplace'}</b></td>
-											<td>{l s=$cat.description mod='marketplace'}</td>
+											<td>{l s=$cat.description|strip_tags mod='marketplace'}</td>
 											<td>
 												<a title="{l s='Edit' mod='marketplace'}"
-													href="{$link->getModuleLink('marketplace', 'updatecategory', ['id_mp_category' => $cat.id])}">
+													href="{$link->getModuleLink('marketplace', 'updatecategory', ['id_mp_category' => $cat.id_category])}">
 													<i class="material-icons">&#xE254;</i>
 												</a>
 												<a title="{l s='Delete' mod='marketplace'}"
-													href="{$link->getModuleLink('marketplace', 'updatecategory', ['id_mp_category' => $cat.id, 'deletecategory' => 1])}"
+													href="{$link->getModuleLink('marketplace', 'updatecategory', ['id_mp_category' => $cat.id_category, 'deletecategory' => 1])}"
 													class="delete_mp_product">
 													<i class="material-icons">&#xE872;</i>
 												</a>
@@ -146,6 +146,7 @@
 						</table>
 						
 					</form>
+
 				</div>
 			</div>
 		</div>
